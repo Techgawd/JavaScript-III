@@ -13,6 +13,14 @@
 
 // code example for Window Binding
 
+///Don't do this!
+///function sayName(name) {
+//   console.log(this);
+//   return name;
+// }
+// sayName("Angela");
+
+
 // Principle 2
 
 // code example for Implicit Binding
@@ -31,3 +39,13 @@ console.log (person.order());
 // Principle 4
 
 // code example for Explicit Binding
+
+const person1 = {
+    "name": "Angela"
+}
+
+function myName (){
+    return `Hello my name is ${this.name}`
+}
+
+console.log (myName.call(person1))
