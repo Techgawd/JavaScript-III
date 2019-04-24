@@ -21,7 +21,6 @@ function GameObject (attributes) {
   this.createdAt = attributes.createdAt;
   this.name = attributes.name;
   this.dimensions = attributes.dimensions;
-  // console.log (this);
  }
 
 GameObject.prototype.destroy = function(){
@@ -34,22 +33,16 @@ GameObject.prototype.destroy = function(){
 // * should inherit destroy() from GameObject's prototype
 // */
 
-
-// function CharacterStats (attributes) {
-//   this.healthPoints = attributes.healthPoints;
-//   console.log (this);
-//  }
-
 function CharacterStats(characterAttributes) {
-GameObject.call(this, characterAttributes); // binding this to Person
-this.healthPoints = characterAttributes.healthpoints; // this will be a special attribute to Child
+GameObject.call(this, characterAttributes); 
+this.healthPoints = characterAttributes.healthpoints; 
 }
 
 CharacterStats.prototype.takeDamage = function(){
 return `${this.name} took damage`
 }
 
-// Child.prototype = Object.destroy(GameObject.prototype);
+// CharacterStats.prototype = Object.destroy(GameObject.prototype);
 
 /*
   === Humanoid (Having an appearance or character resembling that of a human.) ===
@@ -60,18 +53,11 @@ return `${this.name} took damage`
   * should inherit destroy() from GameObject through CharacterStats
   * should inherit takeDamage() from CharacterStats
 */
- 
-// function Humanoid (attributes) {
-//  this.newTeam = attributes.team;
-//  this.newWeapons = attributes.weapons;
-//  this.newLanguage = attributes.language;
-//  console.log (this);
-// }
 
 function Humanoid(humanoidAttributes) {
-  GameObject.call(this, humanoidAttributes); // binding this to Person
+  GameObject.call(this, humanoidAttributes); 
   CharacterStats.call(this, humanoidAttributes);
-  this.newTeam = humanoidAttributes.newTeam; // this will be a special attribute to Child
+  this.newTeam = humanoidAttributes.newTeam; 
   this.newWeapons = humanoidAttributes.newWeapons;
   this.newLanguage = humanoidAttributes.newLanguage;
 }
